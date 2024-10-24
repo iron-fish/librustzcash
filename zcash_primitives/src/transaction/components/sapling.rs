@@ -457,9 +457,11 @@ pub mod testing {
         /// roundtrip testing).
         fn arb_spend_description()(
             cv in arb_extended_point(),
-            anchor in vec(any::<u8>(), 64)
-                .prop_map(|v| <[u8;64]>::try_from(v.as_slice()).unwrap())
-                .prop_map(|v| blstrs::Scalar::from_bytes_wide(&v)),
+            anchor in vec(any::<u8>(), 32)
+                .prop_map(|v| <[u8;32]>::try_from(v.as_slice()).unwrap())
+                .prop_map(|mut v| { v[0] = 0; v })
+                .prop_map(|v| blstrs::Scalar::from_bytes_be(&v))
+                .prop_map(|v| Option::from(v).unwrap()),
             nullifier in prop::array::uniform32(any::<u8>())
                 .prop_map(|v| Nullifier::from_slice(&v).unwrap()),
             zkproof in vec(any::<u8>(), GROTH_PROOF_SIZE)
@@ -469,14 +471,14 @@ pub mod testing {
         ) -> SpendDescription<Authorized> {
             let mut rng = StdRng::from_seed(rng_seed);
             let sk1 = PrivateKey(jubjub::Fr::random(&mut rng));
-            let rk = PublicKey::from_private(&sk1, SPENDING_KEY_GENERATOR);
+            let rk = PublicKey::from_private(&sk1, *SPENDING_KEY_GENERATOR);
             SpendDescription {
                 cv,
                 anchor,
                 nullifier,
                 rk,
                 zkproof,
-                spend_auth_sig: sk1.sign(&fake_sighash_bytes, &mut rng, SPENDING_KEY_GENERATOR),
+                spend_auth_sig: sk1.sign(&fake_sighash_bytes, &mut rng, *SPENDING_KEY_GENERATOR),
             }
         }
     }
@@ -486,9 +488,11 @@ pub mod testing {
         /// roundtrip testing).
         pub fn arb_output_description()(
             cv in arb_extended_point(),
-            cmu in vec(any::<u8>(), 64)
-                .prop_map(|v| <[u8;64]>::try_from(v.as_slice()).unwrap())
-                .prop_map(|v| blstrs::Scalar::from_bytes_wide(&v)),
+            cmu in vec(any::<u8>(), 32)
+                .prop_map(|v| <[u8;32]>::try_from(v.as_slice()).unwrap())
+                .prop_map(|mut v| { v[0] = 0; v })
+                .prop_map(|v| blstrs::Scalar::from_bytes_be(&v))
+                .prop_map(|v| Option::from(v).unwrap()),
             enc_ciphertext in vec(any::<u8>(), 580)
                 .prop_map(|v| <[u8;580]>::try_from(v.as_slice()).unwrap()),
             epk in arb_extended_point(),
@@ -527,7 +531,7 @@ pub mod testing {
                         shielded_spends,
                         shielded_outputs,
                         value_balance,
-                        authorization: Authorized { binding_sig: bsk.sign(&fake_bvk_bytes, &mut rng, VALUE_COMMITMENT_RANDOMNESS_GENERATOR) },
+                        authorization: Authorized { binding_sig: bsk.sign(&fake_bvk_bytes, &mut rng, *VALUE_COMMITMENT_RANDOMNESS_GENERATOR) },
                     }
                 )
             }

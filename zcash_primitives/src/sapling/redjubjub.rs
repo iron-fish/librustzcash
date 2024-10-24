@@ -225,7 +225,7 @@ mod tests {
             0x59, 0x62, 0xbe, 0x5d, 0x76, 0x3d, 0x31, 0x8d, 0x17, 0xdb, 0x37, 0x32, 0x54, 0x06,
             0xbc, 0xe5,
         ]);
-        let p_g = SPENDING_KEY_GENERATOR;
+        let p_g = *SPENDING_KEY_GENERATOR;
 
         let sk1 = PrivateKey(jubjub::Fr::random(&mut rng));
         let vk1 = PublicKey::from_private(&sk1, p_g);
@@ -266,7 +266,7 @@ mod tests {
             0xbc, 0xe5,
         ]);
         let zero = jubjub::ExtendedPoint::identity();
-        let p_g = SPENDING_KEY_GENERATOR;
+        let p_g = *SPENDING_KEY_GENERATOR;
 
         let jubjub_modulus_bytes = [
             0xb7, 0x2c, 0xf7, 0xd6, 0x5e, 0x0e, 0x97, 0xd0, 0x82, 0x10, 0xc8, 0xcc, 0x93, 0x20,
@@ -307,7 +307,7 @@ mod tests {
             0x59, 0x62, 0xbe, 0x5d, 0x76, 0x3d, 0x31, 0x8d, 0x17, 0xdb, 0x37, 0x32, 0x54, 0x06,
             0xbc, 0xe5,
         ]);
-        let p_g = SPENDING_KEY_GENERATOR;
+        let p_g = *SPENDING_KEY_GENERATOR;
 
         for _ in 0..1000 {
             let sk = PrivateKey(jubjub::Fr::random(&mut rng));
@@ -342,7 +342,7 @@ mod tests {
             0x59, 0x62, 0xbe, 0x5d, 0x76, 0x3d, 0x31, 0x8d, 0x17, 0xdb, 0x37, 0x32, 0x54, 0x06,
             0xbc, 0xe5,
         ]);
-        let p_g = SPENDING_KEY_GENERATOR;
+        let p_g = *SPENDING_KEY_GENERATOR;
 
         for _ in 0..1000 {
             let sk = PrivateKey(jubjub::Fr::random(&mut rng));

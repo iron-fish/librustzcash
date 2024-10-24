@@ -153,8 +153,8 @@ pub mod test {
             ))
             .to_affine();
 
-            assert_eq!(p.get_u().to_string(), v.hash_u);
-            assert_eq!(p.get_v().to_string(), v.hash_v);
+            assert_eq!(p.get_u().to_string(), format!("Scalar({})", v.hash_u));
+            assert_eq!(p.get_v().to_string(), format!("Scalar({})", v.hash_v));
         }
     }
 }

@@ -360,7 +360,7 @@ mod tests {
         );
 
         // Set ak to a basepoint.
-        let basepoint = SPENDING_KEY_GENERATOR;
+        let basepoint = &*SPENDING_KEY_GENERATOR;
         buf[0..32].copy_from_slice(&basepoint.to_bytes());
 
         // nk is allowed to be the identity.

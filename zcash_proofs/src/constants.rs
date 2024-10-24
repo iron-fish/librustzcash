@@ -176,20 +176,20 @@ mod tests {
         // d = -(10240/10241)
         assert_eq!(
             -Scalar::from(10240) * Scalar::from(10241).invert().unwrap(),
-            EDWARDS_D
+            *EDWARDS_D
         );
     }
 
     #[test]
     fn montgomery_a() {
-        assert_eq!(Scalar::from(40962), MONTGOMERY_A);
+        assert_eq!(Scalar::from(40962), *MONTGOMERY_A);
     }
 
     #[test]
     fn montgomery_scale() {
         // scaling factor = sqrt(4 / (a - d))
         assert_eq!(
-            MONTGOMERY_SCALE.square() * (-Scalar::one() - EDWARDS_D),
+            MONTGOMERY_SCALE.square() * (-Scalar::one() - *EDWARDS_D),
             Scalar::from(4),
         );
     }

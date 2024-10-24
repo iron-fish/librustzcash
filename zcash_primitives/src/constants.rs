@@ -366,12 +366,12 @@ mod tests {
     #[test]
     fn no_duplicate_fixed_base_generators() {
         let fixed_base_generators = [
-            PROOF_GENERATION_KEY_GENERATOR,
-            NOTE_COMMITMENT_RANDOMNESS_GENERATOR,
-            NULLIFIER_POSITION_GENERATOR,
-            VALUE_COMMITMENT_VALUE_GENERATOR,
-            VALUE_COMMITMENT_RANDOMNESS_GENERATOR,
-            SPENDING_KEY_GENERATOR,
+            *PROOF_GENERATION_KEY_GENERATOR,
+            *NOTE_COMMITMENT_RANDOMNESS_GENERATOR,
+            *NULLIFIER_POSITION_GENERATOR,
+            *VALUE_COMMITMENT_VALUE_GENERATOR,
+            *VALUE_COMMITMENT_RANDOMNESS_GENERATOR,
+            *SPENDING_KEY_GENERATOR,
         ];
 
         // Check for duplicates, far worse than spec inconsistencies!
