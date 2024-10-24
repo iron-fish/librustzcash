@@ -14,7 +14,7 @@ zcash_primitives = { version = "0.7", path = "../zcash_primitives", features = [
 
 [dev-dependencies]
 ff = "0.12"
-jubjub = "0.9"
+ironfish-jubjub = { version = "0.1.0", path = "../../jubjub" }
 rand_core = "0.6"
 zcash_address = { version = "0.1", path = "../components/zcash_address" }
 zcash_proofs = { version = "0.7", path = "../zcash_proofs" }

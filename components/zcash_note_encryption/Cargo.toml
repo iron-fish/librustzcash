@@ -25,8 +25,8 @@ subtle = { version = "2.2.3", default-features = false }
 
 [dev-dependencies]
 ff = { version = "0.12", default-features = false }
-zcash_primitives = { version = "0.7", path = "../../zcash_primitives" }
-jubjub = { git = "https://github.com/iron-fish/jubjub.git", branch = "blstrs" }
+ironfish-primitives = { version = "0.1.0", path = "../../ironfish-primitives" }
+ironfish-jubjub = { version = "0.1.0" }
 
 [features]
 default = ["alloc"]

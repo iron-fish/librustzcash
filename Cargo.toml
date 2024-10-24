@@ -5,8 +5,8 @@ members = [
     "components/zcash_address",
     "components/zcash_encoding",
     "components/zcash_note_encryption",
-    "zcash_primitives",
-    "zcash_proofs",
+    "ironfish-primitives",
+    "ironfish-proofs",
 ]
 
 [profile.release]

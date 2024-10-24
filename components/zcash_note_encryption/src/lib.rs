@@ -347,11 +347,11 @@ pub trait ShieldedOutput<D: Domain, const CIPHERTEXT_SIZE: usize> {
 /// ```
 /// extern crate ff;
 /// extern crate rand_core;
-/// extern crate zcash_primitives;
+/// extern crate ironfish_primitives;
 ///
 /// use ff::Field;
 /// use rand_core::OsRng;
-/// use zcash_primitives::{
+/// use ironfish_primitives::{
 ///     keys::{OutgoingViewingKey, prf_expand},
 ///     consensus::{TEST_NETWORK, TestNetwork, NetworkUpgrade, Parameters},
 ///     memo::MemoBytes,
@@ -370,7 +370,7 @@ pub trait ShieldedOutput<D: Domain, const CIPHERTEXT_SIZE: usize> {
 /// let ovk = Some(OutgoingViewingKey([0; 32]));
 ///
 /// let value = 1000;
-/// let rcv = jubjub::Fr::random(&mut rng);
+/// let rcv = ironfish_jubjub::Fr::random(&mut rng);
 /// let cv = ValueCommitment {
 ///     value,
 ///     randomness: rcv.clone(),

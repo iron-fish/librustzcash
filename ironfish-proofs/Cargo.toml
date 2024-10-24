@@ -1,0 +1,65 @@
+[package]
+name = "ironfish-proofs"
+description = "Zcash zk-SNARK circuits and proving APIs"
+version = "0.1.0"
+authors = [
+    "Jack Grigg <jack@z.cash>",
+]
+repository = "https://github.com/iron-fish/librustzcash"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+edition = "2018"
+categories = ["cryptography::cryptocurrencies"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[dependencies]
+bellperson = { git = "https://github.com/iron-fish/bellperson.git", branch = "blstrs", features = ["groth16"] }
+blake2b_simd = "1"
+blstrs = { version = "0.6.0", features = ["__private_bench"] }
+byteorder = "1"
+directories = { version = "4", optional = true }
+ff = "0.12"
+group = "0.12"
+ironfish-jubjub = { version = "0.1.0" }
+lazy_static = "1"
+minreq = { version = "2", features = ["https"], optional = true }
+rand_core = "0.6"
+redjubjub = "0.5"
+tracing = "0.1"
+wagyu-zcash-parameters = { version = "0.2", optional = true }
+ironfish-primitives = { version = "0.1.0", path = "../ironfish-primitives" }
+
+[dev-dependencies]
+criterion = "0.3"
+rand_xorshift = "0.3"
+
+[target.'cfg(unix)'.dev-dependencies]
+pprof = { version = "0.9", features = ["criterion", "flamegraph"] } # MSRV 1.56
+
+[features]
+default = ["local-prover", "multicore"]
+bundled-prover = ["wagyu-zcash-parameters"]
+download-params = ["minreq"]
+local-prover = ["directories"]
+multicore = []
+
+[lib]
+bench = false
+
+[[bench]]
+name = "sapling"
+harness = false
+required-features = ["local-prover"]
+
+[[example]]
+name = "get-params-path"
+required-features = ["directories"]
+
+[[example]]
+name = "download-params"
+required-features = ["download-params"]
+
+[badges]
+maintenance = { status = "actively-developed" }
