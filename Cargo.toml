@@ -5,10 +5,6 @@ members = [
     "components/zcash_address",
     "components/zcash_encoding",
     "components/zcash_note_encryption",
-    "zcash_client_backend",
-    "zcash_client_sqlite",
-    "zcash_extensions",
-    "zcash_history",
     "zcash_primitives",
     "zcash_proofs",
 ]
