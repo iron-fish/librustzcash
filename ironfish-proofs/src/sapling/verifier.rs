@@ -1,4 +1,4 @@
-use bellperson::{gadgets::multipack, groth16::Proof};
+use ironfish_bellperson::{gadgets::multipack, groth16::Proof};
 use blstrs::Bls12;
 use ff::Field;
 use group::{Curve, GroupEncoding};

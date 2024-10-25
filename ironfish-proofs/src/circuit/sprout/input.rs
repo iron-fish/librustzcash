@@ -1,6 +1,6 @@
-use bellperson::gadgets::boolean::{AllocatedBit, Boolean};
-use bellperson::gadgets::sha256::sha256_block_no_padding;
-use bellperson::{ConstraintSystem, SynthesisError};
+use ironfish_bellperson::gadgets::boolean::{AllocatedBit, Boolean};
+use ironfish_bellperson::gadgets::sha256::sha256_block_no_padding;
+use ironfish_bellperson::{ConstraintSystem, SynthesisError};
 use ff::PrimeField;
 
 use super::commitment::note_comm;

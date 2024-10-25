@@ -1,6 +1,6 @@
 //! APIs for creating and verifying Sprout proofs.
 
-use bellperson::{
+use ironfish_bellperson::{
     gadgets::multipack,
     groth16::{self, create_random_proof, Parameters, PreparedVerifyingKey, Proof},
 };

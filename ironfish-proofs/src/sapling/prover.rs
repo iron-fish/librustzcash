@@ -1,4 +1,4 @@
-use bellperson::{
+use ironfish_bellperson::{
     gadgets::multipack,
     groth16::{create_random_proof, verify_proof, Parameters, PreparedVerifyingKey, Proof},
 };

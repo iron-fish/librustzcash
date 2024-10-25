@@ -1,6 +1,6 @@
-use bellperson::gadgets::boolean::Boolean;
-use bellperson::gadgets::sha256::sha256_block_no_padding;
-use bellperson::{ConstraintSystem, SynthesisError};
+use ironfish_bellperson::gadgets::boolean::Boolean;
+use ironfish_bellperson::gadgets::sha256::sha256_block_no_padding;
+use ironfish_bellperson::{ConstraintSystem, SynthesisError};
 use ff::PrimeField;
 
 #[allow(clippy::many_single_char_names)]

@@ -10,9 +10,9 @@
 //! [`libsnark`]: https://github.com/scipr-lab/libsnark
 //! [BCTV14]: https://eprint.iacr.org/2013/879
 
-use bellperson::gadgets::boolean::{AllocatedBit, Boolean};
-use bellperson::gadgets::multipack::pack_into_inputs;
-use bellperson::{Circuit, ConstraintSystem, LinearCombination, SynthesisError};
+use ironfish_bellperson::gadgets::boolean::{AllocatedBit, Boolean};
+use ironfish_bellperson::gadgets::multipack::pack_into_inputs;
+use ironfish_bellperson::{Circuit, ConstraintSystem, LinearCombination, SynthesisError};
 use ff::PrimeField;
 
 mod commitment;
@@ -336,7 +336,7 @@ where
 #[test]
 #[ignore]
 fn test_sprout_constraints() {
-    use bellperson::gadgets::test::*;
+    use ironfish_bellperson::gadgets::test::*;
     use blstrs::Scalar;
 
     use byteorder::{LittleEndian, ReadBytesExt, WriteBytesExt};
@@ -460,7 +460,7 @@ fn test_sprout_constraints() {
             .write_u64::<LittleEndian>(vpub_new.unwrap())
             .unwrap();
 
-        use bellperson::gadgets::multipack;
+        use ironfish_bellperson::gadgets::multipack;
 
         let expected_inputs = multipack::bytes_to_bits(&expected_inputs);
         let expected_inputs = multipack::compute_multipacking(&expected_inputs);

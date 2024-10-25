@@ -1,6 +1,6 @@
 //! Abstractions over the proving system and parameters for ease of use.
 
-use bellperson::groth16::{Parameters, PreparedVerifyingKey};
+use ironfish_bellperson::groth16::{Parameters, PreparedVerifyingKey};
 use blstrs::Bls12;
 use std::path::Path;
 use ironfish_primitives::{

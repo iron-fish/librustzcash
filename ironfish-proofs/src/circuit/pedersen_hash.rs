@@ -1,9 +1,9 @@
 //! Gadget for Zcash's Pedersen hash.
 
 use super::ecc::{EdwardsPoint, MontgomeryPoint};
-use bellperson::gadgets::boolean::Boolean;
-use bellperson::gadgets::lookup::*;
-use bellperson::{ConstraintSystem, SynthesisError};
+use ironfish_bellperson::gadgets::boolean::Boolean;
+use ironfish_bellperson::gadgets::lookup::*;
+use ironfish_bellperson::{ConstraintSystem, SynthesisError};
 pub use ironfish_primitives::sapling::pedersen_hash::Personalization;
 
 use crate::constants::PEDERSEN_CIRCUIT_GENERATORS;
@@ -105,8 +105,8 @@ where
 #[cfg(test)]
 mod test {
     use super::*;
-    use bellperson::gadgets::boolean::{AllocatedBit, Boolean};
-    use bellperson::gadgets::test::*;
+    use ironfish_bellperson::gadgets::boolean::{AllocatedBit, Boolean};
+    use ironfish_bellperson::gadgets::test::*;
     use ff::PrimeField;
     use group::Curve;
     use rand_core::{RngCore, SeedableRng};

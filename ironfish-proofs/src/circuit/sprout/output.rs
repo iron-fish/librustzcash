@@ -1,5 +1,5 @@
-use bellperson::gadgets::boolean::Boolean;
-use bellperson::{ConstraintSystem, SynthesisError};
+use ironfish_bellperson::gadgets::boolean::Boolean;
+use ironfish_bellperson::{ConstraintSystem, SynthesisError};
 use ff::PrimeField;
 
 use super::commitment::note_comm;

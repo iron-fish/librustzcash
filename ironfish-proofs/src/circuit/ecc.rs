@@ -2,15 +2,15 @@
 
 use std::ops::{AddAssign, MulAssign, Neg, SubAssign};
 
-use bellperson::{ConstraintSystem, SynthesisError};
+use ironfish_bellperson::{ConstraintSystem, SynthesisError};
 
-use bellperson::gadgets::Assignment;
+use ironfish_bellperson::gadgets::Assignment;
 
-use bellperson::gadgets::num::{AllocatedNum, Num};
+use ironfish_bellperson::gadgets::num::{AllocatedNum, Num};
 
-use bellperson::gadgets::lookup::lookup3_xy;
+use ironfish_bellperson::gadgets::lookup::lookup3_xy;
 
-use bellperson::gadgets::boolean::Boolean;
+use ironfish_bellperson::gadgets::boolean::Boolean;
 
 use ff::Field;
 use group::Curve;
@@ -620,17 +620,17 @@ impl MontgomeryPoint {
 
 #[cfg(test)]
 mod test {
-    use bellperson::ConstraintSystem;
+    use ironfish_bellperson::ConstraintSystem;
     use ff::{Field, PrimeField, PrimeFieldBits};
     use group::{Curve, Group};
     use rand_core::{RngCore, SeedableRng};
     use rand_xorshift::XorShiftRng;
 
-    use bellperson::gadgets::test::*;
+    use ironfish_bellperson::gadgets::test::*;
 
     use super::{fixed_base_multiplication, AllocatedNum, EdwardsPoint, MontgomeryPoint};
     use crate::constants::{to_montgomery_coords, NOTE_COMMITMENT_RANDOMNESS_GENERATOR};
-    use bellperson::gadgets::boolean::{AllocatedBit, Boolean};
+    use ironfish_bellperson::gadgets::boolean::{AllocatedBit, Boolean};
 
     #[test]
     #[allow(clippy::many_single_char_names)]

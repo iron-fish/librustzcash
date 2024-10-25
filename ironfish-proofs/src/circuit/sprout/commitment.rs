@@ -1,6 +1,6 @@
-use bellperson::gadgets::boolean::Boolean;
-use bellperson::gadgets::sha256::sha256;
-use bellperson::{ConstraintSystem, SynthesisError};
+use ironfish_bellperson::gadgets::boolean::Boolean;
+use ironfish_bellperson::gadgets::sha256::sha256;
+use ironfish_bellperson::{ConstraintSystem, SynthesisError};
 use ff::PrimeField;
 
 pub fn note_comm<Scalar, CS>(

@@ -1,4 +1,4 @@
-use bellperson::groth16::{verify_proof, PreparedVerifyingKey, Proof};
+use ironfish_bellperson::groth16::{verify_proof, PreparedVerifyingKey, Proof};
 use blstrs::Bls12;
 use ironfish_primitives::{
     constants::{SPENDING_KEY_GENERATOR, VALUE_COMMITMENT_RANDOMNESS_GENERATOR},

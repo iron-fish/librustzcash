@@ -4,7 +4,7 @@ use ff::Field;
 use ff::PrimeField;
 use group::Curve;
 
-use bellperson::{Circuit, ConstraintSystem, SynthesisError};
+use ironfish_bellperson::{Circuit, ConstraintSystem, SynthesisError};
 
 use ironfish_primitives::constants;
 
@@ -19,11 +19,11 @@ use crate::constants::{
     PROOF_GENERATION_KEY_GENERATOR, SPENDING_KEY_GENERATOR, VALUE_COMMITMENT_RANDOMNESS_GENERATOR,
     VALUE_COMMITMENT_VALUE_GENERATOR,
 };
-use bellperson::gadgets::blake2s;
-use bellperson::gadgets::boolean;
-use bellperson::gadgets::multipack;
-use bellperson::gadgets::num;
-use bellperson::gadgets::Assignment;
+use ironfish_bellperson::gadgets::blake2s;
+use ironfish_bellperson::gadgets::boolean;
+use ironfish_bellperson::gadgets::multipack;
+use ironfish_bellperson::gadgets::num;
+use ironfish_bellperson::gadgets::Assignment;
 
 #[cfg(test)]
 use ff::PrimeFieldBits;
@@ -517,7 +517,7 @@ impl Circuit<blstrs::Scalar> for Output {
 
 #[test]
 fn test_input_circuit_with_blstrs() {
-    use bellperson::gadgets::test::*;
+    use ironfish_bellperson::gadgets::test::*;
     use ff::Field;
     use group::Group;
     use rand_core::{RngCore, SeedableRng};
@@ -661,7 +661,7 @@ fn test_input_circuit_with_blstrs() {
 
 #[test]
 fn test_input_circuit_with_blstrs_external_test_vectors() {
-    use bellperson::gadgets::test::*;
+    use ironfish_bellperson::gadgets::test::*;
     use ff::Field;
     use group::Group;
     use rand_core::{RngCore, SeedableRng};
@@ -839,7 +839,7 @@ fn test_input_circuit_with_blstrs_external_test_vectors() {
 
 #[test]
 fn test_output_circuit_with_blstrs() {
-    use bellperson::gadgets::test::*;
+    use ironfish_bellperson::gadgets::test::*;
     use ff::Field;
     use group::Group;
     use rand_core::{RngCore, SeedableRng};

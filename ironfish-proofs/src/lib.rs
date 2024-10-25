@@ -9,7 +9,7 @@
 // Temporary until we have addressed all Result<T, ()> cases.
 #![allow(clippy::result_unit_err)]
 
-use bellperson::groth16::{prepare_verifying_key, Parameters, PreparedVerifyingKey, VerifyingKey};
+use ironfish_bellperson::groth16::{prepare_verifying_key, Parameters, PreparedVerifyingKey, VerifyingKey};
 use blstrs::Bls12;
 use std::fs::File;
 use std::io::{self, BufReader};

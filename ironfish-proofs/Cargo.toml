@@ -15,7 +15,7 @@ categories = ["cryptography::cryptocurrencies"]
 all-features = true
 
 [dependencies]
-bellperson = { git = "https://github.com/iron-fish/bellperson.git", branch = "blstrs", features = ["groth16"] }
+ironfish-bellperson = { version = "0.1.0", features = ["groth16"] }
 blake2b_simd = "1"
 blstrs = { version = "0.6.0", features = ["__private_bench"] }
 byteorder = "1"
